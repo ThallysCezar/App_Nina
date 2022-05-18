@@ -1,0 +1,45 @@
+<h1>Editar Pessoas</h1>
+<div class="well">
+  <form #formPessoa="ngForm">
+
+      <!--Name-->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" class="form-control" minlength="2"  [(ngModel)]="pessoa.name" #name="ngModel" required>
+        <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+          <div [hidden]="!name.errors?.['required']">Digite o nome da pessoa. </div>
+          <div [hidden]="!name.errors?.['minlength']">O nome deve conter ao menos 2 caracteres. </div>
+        </div>
+    </div>
+      
+    <!--Roles-->
+    <div class="form-group">
+        <label for="role">Roles:</label>
+        <input type="text" name="role" id="role" class="form-control" [(ngModel)]="pessoa.role" #role="ngModel" required>
+        <div *ngIf="role.errors && (role.dirty || role.touched)" class="alert alert-danger">
+            <div [hidden]="!role.errors?.['required']">Digite a role da pessoa. </div>
+        </div>
+    </div> 
+
+    <!--Status-->
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" name="status" id="status" class="form-control" [(ngModel)]="pessoa.status" #status="ngModel" required>
+        <div *ngIf="status.errors && (status.dirty || status.touched)" class="alert alert-danger">
+            <div [hidden]="!status.errors?.['required']">Digite o status da pessoa. </div>
+        </div>
+    </div> 
+
+    <!--Botoes, atualizar e voltar-->
+    <div class="form-group">
+      <button type="button" class="btn btn-primary" (click)="atualizar()" [disabled]="!formPessoa.form.valid"> 
+        <i class="fa fa-save" aria-hidden="true"></i> Atualizar
+      </button>
+
+      <!--Voltar-->
+      <a class="btn btn-secondary" [routerLink]="['/pessoas']">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+      </a>
+    </div>
+  </form>
+</div>

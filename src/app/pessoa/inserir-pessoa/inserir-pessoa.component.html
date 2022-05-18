@@ -1,0 +1,91 @@
+<h1>Nova Pessoa</h1>
+
+<div class="well">
+    <form #formPessoa="ngForm">
+      
+      <!--Name-->
+      <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" class="form-control" minlength="2" [(ngModel)]="pessoa.name" #name="ngModel" required>
+          <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+            <div [hidden]="!name.errors?.['required']">Digite o nome da pessoa. </div>
+            <div [hidden]="!name.errors?.['minlength']">O nome deve conter ao menos 2 caracteres. </div>
+          </div>
+      </div>
+
+      <!--Email-->
+      <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="text" name="email" id="email" class="form-control" [(ngModel)]="pessoa.email" #email="ngModel" required>
+          <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+            <div [hidden]="!email.errors?.['required']">Digite o e-mail da pessoa. </div>
+          </div>
+      </div>
+        
+      <!--Roles-->
+      <div class="form-group">
+          <label for="role">Roles:</label>
+          <input type="text" name="role" id="role" class="form-control" [(ngModel)]="pessoa.role" #role="ngModel" required>
+          <div *ngIf="role.errors && (role.dirty || role.touched)" class="alert alert-danger">
+              <div [hidden]="!role.errors?.['required']">Digite a role da pessoa. </div>
+          </div>
+      </div> 
+
+      <!--Status-->
+      <div class="form-group">
+          <label for="status">Status:</label>
+          <input type="text" name="status" id="status" class="form-control" [(ngModel)]="pessoa.status" #status="ngModel" required>
+          <div *ngIf="status.errors && (status.dirty || status.touched)" class="alert alert-danger">
+              <div [hidden]="!status.errors?.['required']">Digite o status da pessoa. </div>
+          </div>
+      </div> 
+
+      <!--Created-->
+      <div class="form-group">
+          <label for="stauts">Created at:</label>
+          <input type="text" name="createdAt" id="createdAt" class="form-control" [(ngModel)]="pessoa.createdAt" #createdAt="ngModel" required>
+          <div *ngIf="createdAt.errors && (createdAt.dirty || createdAt.touched)" class="alert alert-danger">
+              <div [hidden]="!createdAt.errors?.['required']">Digite quando foi criado. </div>
+          </div>
+      </div>      
+    
+      <!--Updated-->
+      <div class="form-group">
+          <label for="stauts">Updated at:</label>
+          <input type="text" name="updatedAt" id="updatedAt" class="form-control" [(ngModel)]="pessoa.updatedAt" #updatedAt="ngModel" required>
+          <div *ngIf="updatedAt.errors && (updatedAt.dirty || updatedAt.touched)" class="alert alert-danger">
+              <div [hidden]="!updatedAt.errors?.['required']">Digite quando foi atualizado. </div>
+          </div>
+      </div>      
+
+      <!--Delivery made-->
+      <div class="form-group">
+          <label for="stauts">Delivery made:</label>
+          <input type="text" name="deliveryMade" id="deliveryMade" class="form-control" [(ngModel)]="pessoa.deliveryMade" #deliveryMade="ngModel" required>
+          <div *ngIf="deliveryMade.errors && (deliveryMade.dirty || deliveryMade.touched)" class="alert alert-danger">
+              <div [hidden]="!deliveryMade.errors?.['required']">Digite quando foi entregue. </div>
+          </div>
+      </div>      
+    
+      <!--Deliveries in progress-->
+      <div class="form-group">
+          <label for="stauts">Delivery made:</label>
+          <input type="text" name="deliveriesInProgress" id="deliveriesInProgress" class="form-control" [(ngModel)]="pessoa.deliveriesInProgress" #deliveriesInProgress="ngModel" required>
+          <div *ngIf="deliveriesInProgress.errors && (deliveriesInProgress.dirty || deliveriesInProgress.touched)" class="alert alert-danger">
+              <div [hidden]="!deliveriesInProgress.errors?.['required']">Digite quantas entregas estão em progressos. </div>
+          </div>
+      </div>
+
+        <!--Botão Salvar com Voltar-->
+      <div class="form-group">
+          <button type="button" class="btn btn-primary" (click)="inserir()" [disabled]="!formPessoa.form.valid"> 
+            <i class="fa fa-save" aria-hidden="true"></i> Salvar
+          </button>
+
+          <!--Voltar-->
+          <a class="btn btn-secondary" [routerLink]="['/pessoas']">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+          </a>
+      </div>
+    </form>
+  </div>
