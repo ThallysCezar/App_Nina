@@ -1,0 +1,134 @@
+<div *ngIf="message" class="alert alert-danger alert-dismissible fade show" rolw="alert">
+  {{message}}
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="$event.preventDefault()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<!--
+  <h1>Login</h1>
+
+
+    <div class="well">
+  <form #formLogin="ngForm">
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="usuario" name="usuario" [(ngModel)]="login.login" #usuario="ngModel" placeholder="name@example.com" required>
+      <label for="usuario">Usuario</label> 
+        <div *ngIf="usuario.errors && (usuario.dirty || usuario.touched)" class="alert alert-danger">
+          <div [hidden]="!usuario.errors?.['required']">
+            Digite o Usuário
+          </div>
+        </div>
+    </div>
+
+    <div class="form-floating">
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="login.password" #password="ngModel" placeholder="Password" required>
+      <label for="password">Senha</label>
+          <div *ngIf="password.errors && (password.dirty || password.touched)">
+            <div [hidden]="!password.errors?.['required']">
+              Digite a senha.
+            </div>
+          </div>
+    </div>
+
+    <div class="well">
+  <form #formLogin="ngForm">
+    <div class="form-group">
+      <label for="usuario">Usuario:</label> 
+        <input type="text" class="form-control" id="usuario" name="usuario" [(ngModel)]="login.login" #usuario="ngModel" required>
+        <div *ngIf="usuario.errors && (usuario.dirty || usuario.touched)" class="alert alert-danger">
+          <div [hidden]="!usuario.errors?.['required']">
+            Digite o Usuário
+          </div>
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input type="text" class="form-control" id="password" name="password" [(ngModel)]="login.password" #password="ngModel" required>
+          <div *ngIf="password.errors && (password.dirty || password.touched)">
+            <div [hidden]="!password.errors?.['required']">
+              Digite a senha.
+            </div>
+          </div>
+    </div>
+-->
+
+<div class="well">
+  <form #formLogin="ngForm">
+    <section class="h-100 gradient-form" style="background-color:  #eee;">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+    
+                    <div class="text-center">
+                      <!--<img src="/assets/images/nina-logo.svg" alt="Logo Nina" width="90" height="48" class="img-fluid logo">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                        style="width: 185px;" alt="logo">
+                      -->
+                      <img src="https://portal.ninamob.com/assets/images/nina-logo.svg" alt="Logo Nina" width="185" height="48" class="img-fluid logo">
+                      <h4 class="mt-1 mb-5 pb-1">Nina Team</h4>
+                    </div>
+    
+                    <form>
+                      <p>Please login to your account</p>
+    
+                      <div class="form-outline mb-4">
+                        <input type="email" id="usuario" name="usuario" class="form-control"
+                          placeholder="E-mail address" [(ngModel)]="login.login" #usuario="ngModel"/>
+                        <label class="form-label" for="usuario">Username</label>
+                        <div *ngIf="usuario.errors && (usuario.dirty || usuario.touched)" class="alert alert-danger">
+                          <div [hidden]="!usuario.errors?.['required']">
+                            Digite o Usuário
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="form-outline mb-4">
+                        <input type="password" id="password" name="password" [(ngModel)]="login.password" #password="ngModel" class="form-control"/>
+                        <label class="form-label" for="password">Password</label>
+                        <div *ngIf="password.errors && (password.dirty || password.touched)">
+                          <div [hidden]="!password.errors?.['required']">
+                            Digite a senha.
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="text-center pt-1 mb-5 pb-1">
+                        <button class="btn btn-nina mb-3" type="button" (click)="logar()" [disabled]="!formLogin.form.valid">Log
+                          in</button>
+                      </div>
+                    </form>
+    
+                  </div>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <h4 class="mb-4">NINA</h4>
+                    <p class="small mb-0">Nosso propósito é: Garantir o direito
+                      de acesso à cidade
+                      Garantir o direito de ir e vir e a equidade de gênero na mobilidade urbana.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--
+       <button type="button" class="btn btn-primary m-3" (click)="logar()" [disabled]="!formLogin.form.valid">
+      <i class="fa fa-save" aria-hidden="true"></i> Logar
+    </button>   
+    
+    -->
+    
+
+  </form>
+</div>

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Pessoa } from 'src/app/shared/models/pessoa.model';
 import { ActivatedRoute, Router, RouteConfigLoadEnd } from '@angular/router';
-import { PessoaService } from '../services/pessoa.service';
+import { UsuarioService } from '../../auth/services/usuario.service';
 
 @Component({
   selector: 'app-editar-pessoa',
@@ -14,7 +14,7 @@ export class EditarPessoaComponent implements OnInit {
   pessoa! : Pessoa;
 
   constructor(
-    private pessoaService: PessoaService,
+    private usuarioService: UsuarioService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -25,7 +25,7 @@ export class EditarPessoaComponent implements OnInit {
     //buscar também ppor, name, email, role, status, created at, update at, deliveries made
     let id = +this.route.snapshot.params['id'];
     //Com o id, obtem a pessoa
-    const res = this.pessoaService.buscaPorID(id);
+    const res = this.usuarioService.buscaPorID(id);
     if (res != undefined) {
       this.pessoa = res;
     } else {
@@ -36,7 +36,7 @@ atualizar(): void {
   //verificar se o formulário é válido
   if (this.formPessoa.form.valid) {
     //efetivamente atualiza a pessoa
-    this.pessoaService.atualizar(this.pessoa);
+    this.usuarioService.atualizar(this.pessoa);
     //redirecionar para /pessoa/listar
     this.router.navigate(['/pessoas']);
   }

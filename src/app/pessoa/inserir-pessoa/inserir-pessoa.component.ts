@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Pessoa } from 'src/app/shared/models/pessoa.model';
-import { PessoaService } from '../services/pessoa.service';  
-import { Router } from '@angular/router';
+import { UsuarioService } from '../shared/services/pessoa.service';  
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-inserir-pessoa',
@@ -12,16 +12,22 @@ import { Router } from '@angular/router';
 export class InserirPessoaComponent implements OnInit {
   @ViewChild('formPessoa') formPessoa! : NgForm;
   pessoa! : Pessoa;
+  novaPessoa: boolean = true;
+  id!: string;
 
 
   constructor(
-    private pessoaService: PessoaService,
+    private usuarioService: UsuarioService,
+    private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     //cria uma instância vazia, para não dar erro de referência
     this.pessoa = new Pessoa();
+
+    this.id = this.route.snapshot.params['id'];
+    this.novaPessoa = !this.id;
 
   }
     //Inserir:
@@ -31,7 +37,7 @@ export class InserirPessoaComponent implements OnInit {
     //Redireciona para /pessoas
     inserir(): void{
       if (this.formPessoa.form.valid) {
-        this.pessoaService.inserir(this.pessoa);
+        this.usuarioService.inserir(this.pessoa);
         this.router.navigate(["/pessoas"]);
     
     }

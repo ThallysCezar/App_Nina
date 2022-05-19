@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PessoaService } from './services/pessoa.service';
+import { UsuarioService } from './shared/services/usuario.service';
 import { ListarPessoaComponent } from './listar-pessoa/listar-pessoa.component';
 
 import { RouterModule } from '@angular/router';
@@ -25,7 +25,6 @@ import { ModalPessoaComponent } from './modal-pessoa/modal-pessoa.component';
     FormsModule
   ],
   providers: [
-    PessoaService
   ]
 })
 export class PessoaModule { }

@@ -1,19 +1,25 @@
   <div class="conteiner-fluid">
 
-  <nav class="navbar navbar-expand-md n navbar-dark bg-dark">
+  <!--
+    <nav class="navbar navbar-expand-md n navbar-dark bg-dark">
     <a class="navbar-brand nav-link" href="#" routerLink="/pessoas">
-      <i class="fa fa-user-edit"></i>
+      <i class="fa fa-user-edit"></i> {{title}}
+    </a>
+  -->
+  <nav *ngIf="usuarioLogado!=null" class="navbar navbar-expand-md n navbar-dark bg-dark">
+    <a class="navbar-brand nav-link" href="#" routerLink="/pessoas">
+      <i class="fa fa-user-edit"></i> {{title}}
     </a>
 
-  <div class="navbar-collapse collapsed" id="navbarContent">
-    <ul class="navbar-nav m-auto">
+  <div *ngIf="usuarioLogado" class="navbar-collapse collapsed justify-content-between" id="navbarContent">
+    <ul class="navbar-nav mr-auto">
       <!--DEPOIS ADC AQUI, O CHARTS E CRIAR UM COMPONENTE PARA ELE-->
-      <li class="nav-item">
+      <li *ngIf="usuarioLogado.perfil==='ADMIN'|| usuarioLogado.perfil==='GERENTE'|| usuarioLogado.perfil==='FUNC'" class="nav-item">
         <a class="nav-link" href="#" routerLink="/pessoas">Pessoas</a>
       </li>
 
       <!--CRIANDO UM MENU DROPDOWN, treinar com isso, porem nao vai ser util-->
-        <li class="nav-item" ngbDropdown>
+        <li *ngIf="usuarioLogado.perfil==='ADMIN'|| usuarioLogado.perfil==='GERENTE'|| usuarioLogado.perfil==='FUNC'"  class="nav-item" ngbDropdown>
           <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">Users</a>
           <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
           <a ngbDropdownItem href="#" routerLink="/pessoas" (click)="$event.preventDefault()">
@@ -22,8 +28,20 @@
           </div>
         </li>
       </ul>
+
+      <ul *ngIf="usuarioLogado" class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="logout()">Logout</a>
+        </li>
+
+        <li class="nav-item">
+          <p class="navbar-text mb-0 text-white">
+            <i class="fa fa-user"></i> {{usuarioLogado.name}}
+          </p>
+        </li>
+      </ul>
     </div>
   </nav>
 
-<router-outlet></router-outlet> 
+<router-outlet></router-outlet>
 </div>
