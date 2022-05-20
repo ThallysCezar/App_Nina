@@ -11,8 +11,8 @@ import { Usuario } from 'src/app/shared/models';
   styleUrls: ['./editar-pessoa.component.css']
 })
 export class EditarPessoaComponent implements OnInit {
-  @ViewChild('formPessoa') formPessoa! : NgForm;
-  pessoa! : Pessoa;
+  @ViewChild('formPessoa') formPessoa!: NgForm;
+  pessoa!: Pessoa;
   novoUsuario: boolean = true;
   usuario: Usuario = new Usuario();
   id!: string;
@@ -37,13 +37,9 @@ export class EditarPessoaComponent implements OnInit {
     });
   }
 
-  salvar(): void {
-    if(this.formPessoa.form.valid) {
-      if(this.novoUsuario) {
-        this.usuarioService.inserir(this.usuario).subscribe(usuario=>{
-          this.router.navigate(["/usuarios"]);
+  salvarEditar(): void {
+        this.usuarioService.alterar(this.usuario).subscribe(usuario => {
+        this.router.navigate(["/pessoas"]);
         })
       }
-    }
   }
-}
