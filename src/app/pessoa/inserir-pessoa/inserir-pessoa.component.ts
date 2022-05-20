@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Pessoa } from 'src/app/shared/models/pessoa.model';
-import { UsuarioService } from '../shared/services/pessoa.service';  
+import { Pessoa } from 'src/app/shared/models/pessoa.model'; 
 import { ActivatedRoute, Router } from '@angular/router';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({
   selector: 'app-inserir-pessoa',

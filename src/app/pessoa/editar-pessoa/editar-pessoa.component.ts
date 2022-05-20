@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Pessoa } from 'src/app/shared/models/pessoa.model';
 import { ActivatedRoute, Router, RouteConfigLoadEnd } from '@angular/router';
-import { UsuarioService } from '../../auth/services/usuario.service';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
+import { Usuario } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-editar-pessoa',
@@ -12,6 +13,9 @@ import { UsuarioService } from '../../auth/services/usuario.service';
 export class EditarPessoaComponent implements OnInit {
   @ViewChild('formPessoa') formPessoa! : NgForm;
   pessoa! : Pessoa;
+  novoUsuario: boolean = true;
+  usuario: Usuario = new Usuario();
+  id!: string;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -20,25 +24,26 @@ export class EditarPessoaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.usuario = new Usuario();
     //snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
     //Operador + (antes do this) converter para número
     //buscar também ppor, name, email, role, status, created at, update at, deliveries made
-    let id = +this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
+    this.novoUsuario = !this.id;
     //Com o id, obtem a pessoa
-    const res = this.usuarioService.buscaPorID(id);
-    if (res != undefined) {
-      this.pessoa = res;
-    } else {
-      throw new Error ("Pessoa não encontrada: id = " + id);
+    this.usuarioService.buscarPorId(+this.id).subscribe(usuario => {
+      this.usuario = usuario;
+      this.usuario.password = "";
+    });
+  }
+
+  salvar(): void {
+    if(this.formPessoa.form.valid) {
+      if(this.novoUsuario) {
+        this.usuarioService.inserir(this.usuario).subscribe(usuario=>{
+          this.router.navigate(["/usuarios"]);
+        })
+      }
     }
   }
-atualizar(): void {
-  //verificar se o formulário é válido
-  if (this.formPessoa.form.valid) {
-    //efetivamente atualiza a pessoa
-    this.usuarioService.atualizar(this.pessoa);
-    //redirecionar para /pessoa/listar
-    this.router.navigate(['/pessoas']);
-  }
-}
 }

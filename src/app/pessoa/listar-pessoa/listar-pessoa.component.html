@@ -16,29 +16,28 @@
         </a>
       </th>
     </tr>
-    <tr *ngFor="let pessoa of pessoas">
-      <td> {{pessoa.name}} </td>
-      <td> {{pessoa.email}} </td>
-      <td> {{pessoa.role}} </td>
-      <td> {{pessoa.status}} </td>
-      <td> {{pessoa.createdAt}} </td>
-      <td> {{pessoa.updatedAt}} </td>
-      <td> {{pessoa.deliveryMade}} </td>
-      <td> {{pessoa.deliveriesInProgress}} </td>
+    <tr *ngFor="let usuario of usuarios">
+      <td> {{usuario.name}} </td>
+      <td> {{usuario.email}} </td>
+      <td> {{usuario.role}} </td>
+      <td> {{usuario.status}} </td>
+      <td> {{usuario.createdAt}} </td>
+      <td> {{usuario.updatedAt}} </td>
+      <td> {{usuario.deliveryMade}} </td>
       <td class="txt-center" style="width: 300px">
-        <button type="button" class="btn btn-xs btn-info" (click)="abrirModalPessoa(pessoa)">
+        <button type="button" class="btn btn-info" (click)="abrirModalPessoa(usuario)">
           <i class="fa fa-eye" aria-hidden="true"></i> Ver
         </button>
-        <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info" [routerLink]="['/pessoas/editar', pessoa.id]">
+        <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info" [routerLink]="['/pessoas/editar', usuario.id]">
           <i class="fa fa-edit" aria-hidden="true"></i> Editar
         </a>
-      <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger" (click)="remover($event, pessoa)">
+      <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger" (click)="remover($event, usuario)">
         <i class="fa fa-times" aria-hidden="true"></i> Remover
       </a>
       </td>
     </tr>
   </tbody>
 </table>
-<p *ngIf="pessoas.length==0">
+<p *ngIf="usuarios.length==0">
   Nenhuma pessoa Cadastrada.
 </p>

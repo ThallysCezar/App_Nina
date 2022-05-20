@@ -2,8 +2,15 @@ export class Usuario {
     constructor(
         public id?: number,
         public name?: string,
-        public login?: string, //login com E-mail
+        public email?: string,
+        public role?: string,
+        public perfil?: string,
+        public login?: string,
         public password?: string,
-        public perfil?: string
+        public status?: string,
+        public createdAt?: string,
+        public updatedAt?: string,
+        public deliveryMade?: number,
+        public deliveriesInProgress?: number
 ) {}
 }

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { UsuarioService } from './shared/services/usuario.service';
+import { UsuarioService } from '../shared/services/usuario.service';
 import { ListarPessoaComponent } from './listar-pessoa/listar-pessoa.component';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InserirPessoaComponent } from './inserir-pessoa/inserir-pessoa.component';
 import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
-import { ModalPessoaComponent } from './modal-pessoa/modal-pessoa.component';
+import { ModalUsuarioComponent } from './modal-usuario/modal-usuario.component';
 
 
 
@@ -17,7 +17,7 @@ import { ModalPessoaComponent } from './modal-pessoa/modal-pessoa.component';
     ListarPessoaComponent,
     InserirPessoaComponent,
     EditarPessoaComponent,
-    ModalPessoaComponent
+    ModalUsuarioComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +25,7 @@ import { ModalPessoaComponent } from './modal-pessoa/modal-pessoa.component';
     FormsModule
   ],
   providers: [
+    UsuarioService
   ]
 })
 export class PessoaModule { }

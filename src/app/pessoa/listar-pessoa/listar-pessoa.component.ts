@@ -4,8 +4,9 @@ import { UsuarioService } from '../../shared/services/usuario.service';
 import { Pessoa } from '../../shared/models/pessoa.model';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalPessoaComponent } from '../modal-pessoa/modal-pessoa.component';
+import { ModalUsuarioComponent } from '../modal-usuario/modal-usuario.component';
 import { Observable } from 'rxjs';
+import { Usuario } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-listar-pessoa',
@@ -14,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class ListarPessoaComponent implements OnInit {
 
-  pessoas: Pessoa[] = [];
+  usuarios: Usuario[] = [];
 
   constructor(
     private usuarioService: UsuarioService,
@@ -22,7 +23,7 @@ export class ListarPessoaComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.pessoas = [];
+    this.usuarios = [];
     this.listarTodos();
   }
 
@@ -30,14 +31,14 @@ export class ListarPessoaComponent implements OnInit {
     this.usuarioService.listarTodos()
       .subscribe((data: Pessoa[]) => {
           if (data == null) {
-            this.pessoas = [];
+            this.usuarios = [];
           } else {
-            this.pessoas = data;
+            this.usuarios = data;
           }
         }
       );
 
-      return this.pessoas;
+      return this.usuarios;
 
 
       //Pessoa(id, name, email, role, status, createdAt, updatedAt, deliveryMade, deliveriesInProgress)
@@ -47,10 +48,10 @@ export class ListarPessoaComponent implements OnInit {
       //new Pessoa(4, "Felipe", "Felipe@email.com", "adm", "active", "2021-11-20", "2022-02-01", 15, 25),
   }
 
-  remover($event: any, pessoa: Pessoa):  void {
+  remover($event: any, usuario: Usuario):  void {
     $event.preventDefault();
-    if (confirm(`Deseja realmente remover a pessoa ${pessoa.name}`)){
-      this.usuarioService.remover(pessoa.id!).subscribe({
+    if (confirm(`Deseja realmente remover a pessoa ${usuario.name}`)){
+      this.usuarioService.remover(usuario.id!).subscribe({
         complete: () => {
           this.listarTodos();
         }
@@ -58,8 +59,8 @@ export class ListarPessoaComponent implements OnInit {
     }
   }
 
-  abrirModalPessoa(pessoa: Pessoa){
-    const modalRef = this.modalService.open(ModalPessoaComponent);
-    modalRef.componentInstance.pessoa = pessoa;
+  abrirModalPessoa(usuario: Usuario){
+    const modalRef = this.modalService.open(ModalUsuarioComponent);
+    modalRef.componentInstance.usuario = usuario;
   }
 }
