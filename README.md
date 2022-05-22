@@ -1,5 +1,12 @@
-# Aplicativo criado com a ideia de um projeto teste de uma determinada empresa
+# Application created with the idea of a test project for an internship at NINA
 
-Esse projeto foi feito em Angular + BootStrap
+This project was made in Angular + BootStrap
 
-## Antes de entregar ajeitar o README
+# First of all, I want to thank for having been selected and for the NINA team having given me the great happiness of having participated in this stage.
+
+## My learning during the project
+Well, my name is Thallys, so, it was a huge pleasure to do this test, this application, because, I really felt it was and always will be what I love to do, programming, I felt even more doing it, it was challenging, stressful, sad, happy, even more joyful, it was the junction of all these feelings to do this project. I learned how to work in Angular, I learned how an API really works, not just in theory, I could put my "hand to the wheel" instead of just being in pages of code, which has no specific meaning, it was very rewarding to participate in this project, this stage, even if I don't pass, I am very happy to have participated, because I could give it my all, I could enjoy every comment, of course I could not do all the steps that the project and the application would be, but to get where I got was very happy.
+
+## My learning during the project
+So, the boring part begins and the good part of having gone through this project, the first thing is, as I didn't know how to work with angular, I didn't know how JSON-Server worked, how many things worked, in one week researching a lot and sleepless nights well, I was able to learn a little bit of angular, because I had never worked with this framework and it was very happy, because, besides learning something new, I could, even though I had watched several videos to be able to learn and still didn't know a lot, I could learn in practice, right away. Not only Angular, but also JSON-Server and Figma (however, as I used to work with prototyping electronic boards (at IFPE) I already had a pretty good notion of how it worked. The JSON-Server, even though it is a "Fake REST API" was very good to learn how it works and how it is, even if I know little, I already know more than I did before I started the project, so my biggest challenge was, as I didn't know anything about angular, I had to learn everything (everything about the project) and watch many videos and documentation to be able to learn.  I couldn't do many things like: Pagination List, Filter the collaborators, change the password (even though I was almost getting to the logic, I couldn't develop it), make the graphic communicate with the Database and Sort. But even with all this, I could learn a lot with this project, with this application. Another problem I had was, even though I can read and listen to a little English, I didn't remember to do the codes in English, so in the end, I had to pass everything to English, which I could learn some new terms too.
+
