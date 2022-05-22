@@ -4,22 +4,22 @@
   <button type="button" class="close" ara-label="Fechar" (click)="activeModal.dismiss()">
     <span aria-hidden="true">&times;</span>
   </button>
-  <h5 class="modal-title text-center" id="modalLabel">Colaborador(a)</h5>
+  <h5 class="modal-title text-center" id="modalLabel">Collaborator</h5>
 </div>
 
 <div class="modal-body text-center">
   <div>
-    <p>Id: {{usuario.id}}</p>
-    <p>Name: {{usuario.name}} </p>
-    <p>E-mail: {{usuario.email}} </p>
-    <p>Roles: {{usuario.role}} </p>
-    <p>Status: {{usuario.status}} </p>
-    <p>Created at: {{usuario.createdAt}} </p>
-    <p>Updated at: {{usuario.updatedAt}} </p>
-    <p>Delivery made: {{usuario.deliveryMade}} </p>
-    <p>Deliveries in progress: {{usuario.deliveriesInProgress}} </p>
+    <p>Id: {{user.id}}</p>
+    <p>Name: {{user.name}} </p>
+    <p>E-mail: {{user.email}} </p>
+    <p>Roles: {{user.role}} </p>
+    <p>Status: {{user.status}} </p>
+    <p>Created at: {{user.createdAt}} </p>
+    <p>Updated at: {{user.updatedAt}} </p>
+    <p>Delivery made: {{user.deliveryMade}} </p>
+    <p>Deliveries in progress: {{user.deliveriesInProgress}} </p>
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.close()">Fechar</button>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.close()">Close</button>
 </div>

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Usuario } from 'src/app/shared/models';
+import { User } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-modal-usuario',
@@ -9,7 +9,7 @@ import { Usuario } from 'src/app/shared/models';
 })
 export class ModalUsuarioComponent implements OnInit {
 
-  @Input() usuario: Usuario = new Usuario();
+  @Input() user: User = new User();
 
 
   constructor( public activeModal: NgbActiveModal) { }

@@ -12,28 +12,23 @@ export class AuthGuard implements CanActivate {
   constructor(
     private loginService: LoginService,
     private router: Router
-  ){}
+  ) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const usuarioLogado = this.loginService.usuarioLogado;
+    const userLoggedIn = this.loginService.userLoggedIn;
     let url = state.url;
-    if (usuarioLogado) {
-      if(route.data?.['role'] && route.data?.['role'].indexOf(usuarioLogado.perfil)===-1){
-        // Se o perfil do usuário não está no perfil da rota
-        // vai para o login
+    if (userLoggedIn) {
+      if (route.data?.['role'] && route.data?.['role'].indexOf(userLoggedIn.perfil) === -1) {
         this.router.navigate(['/login'],
-                            {queryParams: {error: "Proibido o acesso a " + url}});
+          { queryParams: { error: "Proibido o acesso a " + url } });
         return false;
       }
-      //em qualquer outro caso, permite acesso
       return true;
     }
-    //Se não está logado, vai para login
     this.router.navigate(['/login'],
-                          {queryParams: {error: "Deve fazer o login antes de acessar " + url}});
+      { queryParams: { error: "Deve fazer o login antes de acessar " + url } });
     return false;
   }
-
 }

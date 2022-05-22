@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { PessoaModule } from './pessoa/pessoa.module';
 import { HomeComponent } from './home/home.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
     AuthModule,
     RouterModule,
     AppRoutingModule,
-    PessoaModule
+    PessoaModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

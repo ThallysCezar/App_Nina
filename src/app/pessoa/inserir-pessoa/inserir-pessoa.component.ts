@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Pessoa } from 'src/app/shared/models/pessoa.model'; 
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/shared/services/usuario.service';
-import { Usuario } from 'src/app/shared/models';
+import { User } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-inserir-pessoa',
@@ -13,8 +13,8 @@ import { Usuario } from 'src/app/shared/models';
 export class InserirPessoaComponent implements OnInit {
   @ViewChild('formPessoa') formPessoa! : NgForm;
   pessoa! : Pessoa;
-  novoUsuario: boolean = true;
-  usuario: Usuario = new Usuario();
+  newUser: boolean = true;
+  user: User = new User();
   id!: string;
 
 
@@ -26,9 +26,9 @@ export class InserirPessoaComponent implements OnInit {
 
   ngOnInit(): void {
     //cria uma instância vazia, para não dar erro de referência
-    this.usuario = new Usuario();
+    this.user = new User();
     this.id = this.route.snapshot.params['id'];
-    this.novoUsuario = !this.id;
+    this.newUser = !this.id;
 
   }
     //Inserir:
@@ -38,7 +38,7 @@ export class InserirPessoaComponent implements OnInit {
     //Redireciona para /pessoas
 
  salvarInserir(): void {
-        this.usuarioService.inserir(this.usuario).subscribe(usuario => {
+        this.usuarioService.inserir(this.user).subscribe(user => {
         this.router.navigate(["/pessoas"]);
         })
     }

@@ -1,84 +1,38 @@
-  <div class="conteiner-fluid">
-
-    <!--
-    <nav class="navbar navbar-expand-md n navbar-dark bg-dark">
-    <a class="navbar-brand nav-link" href="#" routerLink="/pessoas">
-      <i class="fa fa-user-edit"></i> {{title}}
-    </a>
-  -->
-    <nav *ngIf="usuarioLogado!=null" class="navbar navbar-expand-lg navbar-dark bg-purple">
-      <div class="container-fluid">
-        <ul class="navbar-nav d-flex flex-row">
-          <a class="navbar-brand nav-link text-white" href="#" routerLink="/home">Aplicativo Nina Team
-          </a>
-          <div *ngIf="usuarioLogado" class="navbar-collapse collapsed justify-content-between" id="navbarContent">
-            <ul class="navbar-nav mr-auto">
-
-              <!--DEPOIS ADC AQUI, O CHARTS E CRIAR UM COMPONENTE PARA ELE-->
-              <li
-                *ngIf="usuarioLogado.perfil==='ADMIN'|| usuarioLogado.perfil==='GERENTE'|| usuarioLogado.perfil==='FUNC'"
-                class="nav-item">
-                <a class="nav-link text-white" href="#" routerLink="/pessoas">Lista de Colaboradores</a>
-              </li>
-            </ul>
-          </div>
-
-          <!--CRIANDO UM MENU DROPDOWN, treinar com isso, porem nao vai ser util
-          <li *ngIf="usuarioLogado.perfil==='ADMIN'|| usuarioLogado.perfil==='GERENTE'|| usuarioLogado.perfil==='FUNC'"
-           class="nav-item" ngbDropdown>
-           <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">Users</a>
-           <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-           <a ngbDropdownItem href="#" routerLink="/pessoas" (click)="$event.preventDefault()">
-            Pessoas
-            </a>
-            </div>
-            </li>
-            </ul>
-          </div>  -->
-          <!--Logout + Nome do usuario-->
-          <li class="nav-item" ngbDropdown>
-            <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" data-mdb-toggle="dropdown"
-              aria-expanded="false" role="button">
-              <a class="navbar-text mb-0 text-white">
-                <i class="fa fa-user"></i> {{usuarioLogado.name}}
-              </a>
-            </a>
-            <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-              <!--CHARTS
-                                    <li>
-                <a class="dropdown-item" ngbDropdownItem href="#" routerLink="/pessoas" (click)="$event.preventDefault()">
-                  Pessoas
-                </a>
-              </li>
-                      -->
+<div class="conteiner-fluid">
+    <nav *ngIf="userLoggedIn!=null" class="navbar navbar-expand-lg bg-purple text-white">
+        <ul class="navbar-nav">
           <li>
-            <a class="dropdown-item" ngbDropdownItem href="#" routerLink="/pessoas" (click)="$event.preventDefault()">
-              Charts
-            </a>
-          </li>
-
-          <li>
-            <a class="dropdown-item c-purple" ngbDropdownItem href="#" (click)="logout()">Logout</a>
-          </li>
-      </div>
-      </li>
-
-      <!-- 
-            O CERTO
-          <ul *ngIf="usuarioLogado" class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#" (click)="logout()">Logout</a>
-          </li>
-
-          <li class="nav-item">
-            <p class="navbar-text mb-0 text-white">
-              <i class="fa fa-user"></i> {{usuarioLogado.name}}
-            </p>
+            <a class="navbar-brand nav-link text-white" href="#" routerLink="/home">Nina application</a>
           </li>
         </ul>
-        -->
-      </ul>
-  </div>
-  </nav>
-  <router-outlet></router-outlet>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">          
+                  <li
+                  *ngIf="userLoggedIn.perfil==='ADMIN'|| userLoggedIn.perfil==='GERENTE'|| userLoggedIn.perfil==='EMP'
+                  || userLoggedIn.perfil==='DRIVER'"
+                  class="nav-item">
+                  <a class="nav-link text-white" href="#" routerLink="/pessoas">List of collaborators</a>
+                </li>
+                <li class="nav-itemd-flex" ngbDropdown>
+                  <a class="nav-link text-white" tabindex="0" ngbDropdownToggle id="navbarDropdown1" data-mdb-toggle="dropdown"
+                    aria-expanded="false" role="button">
+                    <a class="navbar-text mb-0 text-white">
+                      <i class="fa fa-user"></i> {{userLoggedIn.name}}
+                    </a>
+                  </a>
+                  <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu bg-white">
+                    <li>
+                      <a class="dropdown-item" ngbDropdownItem href="#" routerLink="/home">
+                        Charts
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item c-purple" ngbDropdownItem href="#" (click)="logout()">Logout</a>
+                    </li>
+                  </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
   </div>
