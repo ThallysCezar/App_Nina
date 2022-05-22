@@ -6,12 +6,12 @@ import { UsuarioService } from 'src/app/shared/services/usuario.service';
 import { User } from 'src/app/shared/models';
 
 @Component({
-  selector: 'app-inserir-pessoa',
-  templateUrl: './inserir-pessoa.component.html',
-  styleUrls: ['./inserir-pessoa.component.css']
+  selector: 'app-register-collaborator',
+  templateUrl: './register-collaborator.component.html',
+  styleUrls: ['./register-collaborator.component.css']
 })
-export class InserirPessoaComponent implements OnInit {
-  @ViewChild('formPessoa') formPessoa! : NgForm;
+export class RegisterCollaboratorComponent implements OnInit {
+  @ViewChild('formUser') formUser! : NgForm;
   pessoa! : Pessoa;
   newUser: boolean = true;
   user: User = new User();
@@ -31,15 +31,10 @@ export class InserirPessoaComponent implements OnInit {
     this.newUser = !this.id;
 
   }
-    //Inserir:
-    // - Verificar se o formulário é válido, se não deu nenhum erro
-    // - Se Ok
-    //Chama o inserir do Service, this.pessoa está preenchida(binding)
-    //Redireciona para /pessoas
 
  salvarInserir(): void {
         this.usuarioService.inserir(this.user).subscribe(user => {
-        this.router.navigate(["/pessoas"]);
+        this.router.navigate(["/collaborator"]);
         })
     }
   }

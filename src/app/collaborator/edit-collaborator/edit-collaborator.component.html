@@ -1,9 +1,9 @@
 <h1 class="text-center">Edit Collaborator</h1>
 <div class="well">
-  <form #formPessoa="ngForm">
+  <form #formUser="ngForm">
       <!--Name-->
       <div class="form-outline mb-4">
-        <label for="name">Name:</label>
+        <label for="name">Name</label>
         <input type="text" name="name" id="name" class="form-control" minlength="2"  [(ngModel)]="user.name" #name="ngModel" required>
         <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
           <div [hidden]="!name.errors?.['required']">Type collaborater's name.</div>
@@ -13,7 +13,7 @@
       
     <!--Roles-->
     <div class="form-outline mb-4">
-        <label for="role">Roles:</label>
+        <label for="role">Roles</label>
         <input type="text" name="role" id="role" class="form-control" [(ngModel)]="user.role" #role="ngModel" required>
         <div *ngIf="role.errors && (role.dirty || role.touched)" class="alert alert-danger">
             <div [hidden]="!role.errors?.['required']">Type collaborater's role.</div>
@@ -22,7 +22,7 @@
 
     <!--Status-->
     <div class="form-outline mb-4">
-        <label for="status">Status:</label>
+        <label for="status">Status</label>
         <input type="text" name="status" id="status" class="form-control" [(ngModel)]="user.status" #status="ngModel" required>
         <div *ngIf="status.errors && (status.dirty || status.touched)" class="alert alert-danger">
             <div [hidden]="!status.errors?.['required']">Type collaborater's status.</div>
@@ -31,10 +31,10 @@
 
     <!--Botoes, atualizar e voltar-->
       <div class="form-outline">
-        <button type="button" class="btn btn-primary btn-rounded" (click)="salvarEditar()" [disabled]="!formPessoa.form.valid"> 
+        <button type="button" class="btn btn-primary btn-rounded" (click)="salvarEditar()" [disabled]="!formUser.form.valid"> 
           <i class="spinner-border spinner-border-sm mr-4" aria-hidden="true"></i> Edit
         </button>
-        <a class="btn btn-secondary btn-rounded" routerLink="/pessoas">
+        <a class="btn btn-secondary btn-rounded" routerLink="/collaborator">
           <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
         </a>
       </div>

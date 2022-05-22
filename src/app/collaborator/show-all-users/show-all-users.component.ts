@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/shared/models';
-
-import { Pessoa } from '../../shared/models/pessoa.model';
 import { UsuarioService } from '../../shared/services/usuario.service';
 import { ModalUsuarioComponent } from '../modal-usuario/modal-usuario.component';
 
@@ -25,9 +23,9 @@ export class ShowAllUsersComponent implements OnInit {
     this.listarTodos();
   }
 
-  listarTodos(): Pessoa[] {
+  listarTodos(): User[] {
     this.usuarioService.listarTodos()
-      .subscribe((data: Pessoa[]) => {
+      .subscribe((data: User[]) => {
           if (data == null) {
             this.user = [];
           } else {

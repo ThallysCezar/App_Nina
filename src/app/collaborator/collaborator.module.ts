@@ -5,18 +5,18 @@ import { UsuarioService } from '../shared/services/usuario.service';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { InserirPessoaComponent } from './inserir-pessoa/inserir-pessoa.component';
-import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
+import { EditCollaboratorComponent } from './edit-collaborator/edit-collaborator.component';
 import { ModalUsuarioComponent } from './modal-usuario/modal-usuario.component';
 import { ShowAllUsersComponent } from './show-all-users/show-all-users.component';
+import { RegisterCollaboratorComponent } from './register-collaborator/register-collaborator.component';
 
 
 
 @NgModule({
   declarations: [
     ShowAllUsersComponent,
-    InserirPessoaComponent,
-    EditarPessoaComponent,
+    RegisterCollaboratorComponent,
+    EditCollaboratorComponent,
     ModalUsuarioComponent
   ],
   imports: [
@@ -28,4 +28,4 @@ import { ShowAllUsersComponent } from './show-all-users/show-all-users.component
     UsuarioService
   ]
 })
-export class PessoaModule { }
+export class CollaboratorModule { }

@@ -11,7 +11,7 @@
       <th>Updated At</th>
       <th>Delivery made</th>
       <th class="text-center">
-        <a href="#" [routerLink]="['/pessoas/novo']" title="New" alt="New" class="btn btn-xs btn-sucsess">
+        <a href="#" [routerLink]="['/collaborator/new']" title="New" alt="New" class="btn btn-xs btn-sucsess">
           <i class="fa fa-plus" aria-hidden="true"></i> New Collaborators
         </a>
       </th>
@@ -29,7 +29,7 @@
           <i class="fa fa-eye" aria-hidden="true"></i> See
         </button>
         <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info mr-2"
-          [routerLink]="['/pessoas/editar', user.id]">
+          [routerLink]="['/collaborator/edit', user.id]">
           <i class="fa fa-edit" aria-hidden="true"></i> Edit
         </a>
         <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger mr-2" (click)="remover($event, user)">

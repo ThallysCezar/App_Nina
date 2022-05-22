@@ -10,7 +10,7 @@ export class UsuarioService {
 
   constructor(private httpClient: HttpClient) { }
 
-  BASE_URL = "http://localhost:3000/usuarios/";
+  BASE_URL = "http://localhost:3000/users/";
 
   httpOptions = {
     headers: new HttpHeaders({

@@ -5,12 +5,13 @@ import { User } from 'src/app/shared/models';
 import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({
-  selector: 'app-editar-pessoa',
-  templateUrl: './editar-pessoa.component.html',
-  styleUrls: ['./editar-pessoa.component.css']
+  selector: 'app-edit-collaborator',
+  templateUrl: './edit-collaborator.component.html',
+  styleUrls: ['./edit-collaborator.component.css']
 })
-export class EditarPessoaComponent implements OnInit {
-  @ViewChild('formPessoa') formPessoa!: NgForm;
+
+export class EditCollaboratorComponent implements OnInit {
+  @ViewChild('formUser') formUser!: NgForm;
   newUser: boolean = true;
   user: User = new User();
   id!: string;
@@ -23,12 +24,8 @@ export class EditarPessoaComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = new User();
-    //snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
-    //Operador + (antes do this) converter para número
-    //buscar também ppor, name, email, role, status, created at, update at, deliveries made
     this.id = this.route.snapshot.params['id'];
     this.newUser = !this.id;
-    //Com o id, obtem a pessoa
     this.usuarioService.buscarPorId(+this.id).subscribe(user => {
       this.user = user;
       this.user.password = "";
@@ -37,7 +34,7 @@ export class EditarPessoaComponent implements OnInit {
 
   salvarEditar(): void {
         this.usuarioService.alterar(this.user).subscribe(user => {
-        this.router.navigate(["/pessoas"]);
+        this.router.navigate(["/collaborator"]);
         })
       }
   }

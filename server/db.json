@@ -1,5 +1,5 @@
 {
-  "usuarios": [
+  "users": [
     {
       "id": 1,
       "name": "Admin",
@@ -30,12 +30,12 @@
     },
     {
       "id": 3,
-      "name": "Func",
+      "name": "Emp",
       "login": "func",
       "status": "vacation",
       "email": "func@email.com",
-      "role": "adm",
-      "password": "func",
+      "role": "Emp",
+      "password": "",
       "perfil": "FUNC",
       "createdAt": "12/03/2021",
       "updatedAt": "12/03/2022",
