@@ -6,7 +6,7 @@ import { User } from 'src/app/shared/models';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
+export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,23 +18,23 @@ export class UsuarioService {
     })
   }
 
-  listarTodos(): Observable<User[]> {
+  showAll(): Observable<User[]> {
       return this.httpClient.get<User[]>(this.BASE_URL, this.httpOptions);
   }
 
-  buscarPorId(id: number): Observable<User>{
+  searchById(id: number): Observable<User>{
       return this.httpClient.get<User>(this.BASE_URL + id, this.httpOptions);
   }
 
-  inserir(user: User): Observable<User> {
+  register(user: User): Observable<User> {
     return this.httpClient.post<User>(this.BASE_URL, JSON.stringify(user), this.httpOptions);
   }
 
-  remover(id: number): Observable<User> {
+  remove(id: number): Observable<User> {
     return this.httpClient.delete<User>(this.BASE_URL + id, this.httpOptions);
   }
 
-  alterar(user: User): Observable<User>{
+  change(user: User): Observable<User>{
     return this.httpClient.put<User>(this.BASE_URL + user.id, JSON.stringify(user), this.httpOptions);
   }
 }

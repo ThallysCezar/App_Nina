@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router, RouteConfigLoadEnd } from '@angular/router';
 import { User } from 'src/app/shared/models';
-import { UsuarioService } from 'src/app/shared/services/usuario.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-edit-collaborator',
@@ -17,7 +17,7 @@ export class EditCollaboratorComponent implements OnInit {
   id!: string;
 
   constructor(
-    private usuarioService: UsuarioService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -26,14 +26,14 @@ export class EditCollaboratorComponent implements OnInit {
     this.user = new User();
     this.id = this.route.snapshot.params['id'];
     this.newUser = !this.id;
-    this.usuarioService.buscarPorId(+this.id).subscribe(user => {
+    this.userService.searchById(+this.id).subscribe(user => {
       this.user = user;
       this.user.password = "";
     });
   }
 
-  salvarEditar(): void {
-        this.usuarioService.alterar(this.user).subscribe(user => {
+  Edit(): void {
+        this.userService.change(this.user).subscribe(user => {
         this.router.navigate(["/collaborator"]);
         })
       }

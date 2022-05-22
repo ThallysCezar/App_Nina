@@ -25,14 +25,14 @@
       <td> {{user.updatedAt}} </td>
       <td> {{user.deliveryMade}} </td>
       <td class="txt-center" style="width: 300px">
-        <button type="button" class="btn btn-info mr-2" (click)="abrirModalPessoa(user)">
+        <button type="button" class="btn btn-info mr-2" (click)="openModal(user)">
           <i class="fa fa-eye" aria-hidden="true"></i> See
         </button>
-        <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info mr-2"
+        <a href="#" title="Edit" alt="Edit" class="btn btn-xs btn-info mr-2"
           [routerLink]="['/collaborator/edit', user.id]">
           <i class="fa fa-edit" aria-hidden="true"></i> Edit
         </a>
-        <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger mr-2" (click)="remover($event, user)">
+        <a href="#" title="Delete" alt="Delete" class="btn btn-xs btn-danger mr-2" (click)="remove($event, user)">
           <i class="fa fa-times" aria-hidden="true"></i> Delete
         </a>
       </td>

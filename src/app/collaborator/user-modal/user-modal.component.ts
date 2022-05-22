@@ -3,11 +3,11 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/shared/models';
 
 @Component({
-  selector: 'app-modal-usuario',
-  templateUrl: './modal-usuario.component.html',
-  styleUrls: ['./modal-usuario.component.css']
+  selector: 'app-user-modal',
+  templateUrl: './user-modal.component.html',
+  styleUrls: ['./user-modal.component.css']
 })
-export class ModalUsuarioComponent implements OnInit {
+export class UserModalComponent implements OnInit {
 
   @Input() user: User = new User();
 

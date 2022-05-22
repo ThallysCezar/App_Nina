@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Pessoa } from 'src/app/shared/models/pessoa.model'; 
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsuarioService } from 'src/app/shared/services/usuario.service';
+import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/shared/models';
 
 @Component({
@@ -12,14 +11,13 @@ import { User } from 'src/app/shared/models';
 })
 export class RegisterCollaboratorComponent implements OnInit {
   @ViewChild('formUser') formUser! : NgForm;
-  pessoa! : Pessoa;
   newUser: boolean = true;
   user: User = new User();
   id!: string;
 
 
   constructor(
-    private usuarioService: UsuarioService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -32,8 +30,8 @@ export class RegisterCollaboratorComponent implements OnInit {
 
   }
 
- salvarInserir(): void {
-        this.usuarioService.inserir(this.user).subscribe(user => {
+ registerCollaborator(): void {
+        this.userService.register(this.user).subscribe(user => {
         this.router.navigate(["/collaborator"]);
         })
     }
