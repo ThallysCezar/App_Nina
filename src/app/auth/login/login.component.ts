@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       });
     } this.loading = false;
   }
-  
+
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {

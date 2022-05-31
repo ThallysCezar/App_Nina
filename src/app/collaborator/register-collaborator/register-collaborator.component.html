@@ -4,30 +4,30 @@
   <form #formUser="ngForm">
     <!--Name and E-mail-->
     <div class="row mb-2">
-        <div class="col">
-            <!--Name-->
-            <div class="form-outlin">
-                <label class="form-label" for="name">Name</label>
-                <input type="text" name="name" id="name" class="form-control" minlength="2" [(ngModel)]="user.name"
-                    #name="ngModel" required>
-                <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
-                    <div [hidden]="!name.errors?.['required']">Enter the name of the collaborator.</div>
-                    <div [hidden]="!name.errors?.['minlength']">The name must contain at least 2 characters.</div>
-                </div>
-            </div>
+      <div class="col">
+        <!--Name-->
+        <div class="form-outlin">
+          <label class="form-label" for="name">Name</label>
+          <input type="text" name="name" id="name" class="form-control" minlength="2" [(ngModel)]="user.name"
+            #name="ngModel" required>
+          <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+            <div [hidden]="!name.errors?.['required']">Enter the name of the collaborator.</div>
+            <div [hidden]="!name.errors?.['minlength']">The name must contain at least 2 characters.</div>
+          </div>
+        </div>
       </div>
       <!--Email-->
       <div class="col">
-            <div class="form-outline">
-                <label class="form-label" for="name">E-mail</label>
-                <input type="email" name="email" id="email" class="form-control" minlength="2" [(ngModel)]="user.email"
-                    #email="ngModel" required>
-                <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
-                    <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
-                        <div [hidden]="!email.errors?.['required']">Enter the employee's e-mail address.</div>
-                    </div>
-                </div>
+        <div class="form-outline">
+          <label class="form-label" for="name">E-mail</label>
+          <input type="email" name="email" id="email" class="form-control" minlength="2" [(ngModel)]="user.email"
+            #email="ngModel" required>
+          <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+              <div [hidden]="!email.errors?.['required']">Enter the employee's e-mail address.</div>
             </div>
+          </div>
+        </div>
       </div>
     </div>
     <!--Roles and Status-->
