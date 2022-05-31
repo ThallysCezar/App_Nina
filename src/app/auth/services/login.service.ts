@@ -20,13 +20,13 @@ export class LoginService {
   }
 
   logout(): void {
-  delete localStorage[LS_CHAVE];
+    delete localStorage[LS_CHAVE];
   }
 
   login(login: Login): Observable<User | null> {
     let user = new User(1, "Emp", login.login, login.password, "EMP");
 
-    if(login.login == login.password) {
+    if (login.login == login.password) {
       if (login.login == "admin") {
         user = new User(1, "Admin", login.login, login.password, "ADMIN")
       } else if (login.login == "gerente") {

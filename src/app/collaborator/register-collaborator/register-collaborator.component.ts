@@ -10,7 +10,7 @@ import { User } from 'src/app/shared/models';
   styleUrls: ['./register-collaborator.component.css']
 })
 export class RegisterCollaboratorComponent implements OnInit {
-  @ViewChild('formUser') formUser! : NgForm;
+  @ViewChild('formUser') formUser!: NgForm;
   newUser: boolean = true;
   user: User = new User();
   id!: string;
@@ -30,9 +30,9 @@ export class RegisterCollaboratorComponent implements OnInit {
 
   }
 
- registerCollaborator(): void {
-        this.userService.register(this.user).subscribe(user => {
-        this.router.navigate(["/collaborator"]);
-        })
-    }
+  registerCollaborator(): void {
+    this.userService.register(this.user).subscribe(user => {
+      this.router.navigate(["/collaborator"]);
+    })
   }
+}
